@@ -37,7 +37,9 @@ jobs:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
       - run:
           name: Installing the Node manager
-          command: npm install aws-cdk@1.115.0
+          command: |
+            npm install aws-cdk@1.115.0
+            cdk --version
       - run:
           name: installing the requirements.
           command: |
