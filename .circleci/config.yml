@@ -33,6 +33,7 @@ jobs:
       - run:
           name: installing the requirements.
           command: |
+            ls
             cd cdk-sample/
             python3 -m venv .venv
             source .venv/bin/activate
