@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  python: circleci/python@1.4.0
-
 workflows:
   sample:
     jobs:
@@ -20,8 +17,12 @@ jobs:
 
     steps:
       - checkout
-      - python/install-packages:
-          pkg-manager: pip
+      - run:
+          name: Installing the dependencies
+          commands: |
+            sudo apt-get -y -qq update
+            sudo apt-get install python-pip python-dev build-essential
+             sudo pip install awscli --upgrade
       - run:
           name: Installing the Node manager
           command: npm install aws-cdk@1.115.0
