@@ -22,7 +22,7 @@ jobs:
           commands: |
             sudo apt-get -y -qq update
             sudo apt-get install python-pip python-dev build-essential
-             sudo pip install awscli --upgrade
+            sudo pip install awscli --upgrade
       - run:
           name: Installing the Node manager
           command: npm install aws-cdk@1.115.0
