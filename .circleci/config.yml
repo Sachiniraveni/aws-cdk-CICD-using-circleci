@@ -21,8 +21,12 @@ jobs:
           name: Installing the dependencies
           commands: |
             sudo apt-get -y -qq update
-            sudo apt-get install python-pip python-dev build-essential
-            sudo pip install awscli --upgrade
+            sudo apt install python3.8
+            sudo apt install python3-pip
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+            
       - run:
           name: Installing the Node manager
           command: npm install aws-cdk@1.115.0
