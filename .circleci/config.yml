@@ -21,7 +21,7 @@ jobs:
           name: Installing the dependencies
           command: |
             sudo apt-get -y -qq update
-            sudo apt install python3.8
+            apt install python3.8-venv
             sudo apt install python3-pip
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip awscliv2.zip
