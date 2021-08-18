@@ -59,6 +59,8 @@ jobs:
             cdk synth --profile sac
 
 
-
+  upper:
+    docker:
+      - image: cimg/node:12.0
 
 
