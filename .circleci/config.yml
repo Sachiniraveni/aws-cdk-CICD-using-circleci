@@ -53,6 +53,7 @@ jobs:
             cat app.py
             cdk ls --profile sac
             cdk synth --profile sac
+            pytest
             
 #       - run:
 #           name: List the stack
