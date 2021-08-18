@@ -23,6 +23,7 @@ jobs:
 
     steps:
       - checkout
+      - browser-tools/install-browser-tools
       - run: |
           python --version
           node --version
