@@ -50,6 +50,9 @@ jobs:
       - python/install-packages:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
+      - command: cdk ls --profile sac
+          pkg-manager: pipenv
+        
 #             pip install -r requirements.txt
 #             sed -i 's/env_lower.yaml/env_upper.yaml/g' app.py
 #             cat app.py
