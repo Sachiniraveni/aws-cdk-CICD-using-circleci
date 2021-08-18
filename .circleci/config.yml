@@ -13,7 +13,7 @@ workflows:
           filters:
             branches:
               only:
-                - circle-project-setup
+                - circleci-project-setup
 
 
 jobs:
