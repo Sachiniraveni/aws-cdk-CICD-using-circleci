@@ -8,15 +8,20 @@ orbs:
 workflows:
   sample:
     jobs:
-      - build-and-test:
+      - lower:
           filters:
             branches:
               only:
-                - circleci-project-setup
+                - circle-workflow-setup
+      - upper:
+          filters:
+            branches:
+              only:
+                - main
 
 
 jobs:
-  build-and-test:
+  lower:
     docker:
       - image: cimg/node:12.0
 
@@ -42,7 +47,6 @@ jobs:
             npm install -g aws-cdk@1.115.0
             npm --version
             cdk --version
-# cdk --version
       - run:
           name: installing the requirements and synthesizing into CFN templates.
           command: |
@@ -53,14 +57,7 @@ jobs:
             cat app.py
             cdk ls --profile sac
             cdk synth --profile sac
-            pytest
-            
-#       - run:
-#           name: List the stack
-#           command: cdk ls --profile sac
-#       - cdk/cdk:
-#           command: cdk synth 
-#           cdk_params: --profile sac
+
 
 
 
