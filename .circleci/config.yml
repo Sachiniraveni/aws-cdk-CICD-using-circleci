@@ -47,6 +47,7 @@ jobs:
             python3 -m venv .venv
             source .venv/bin/activate
             pip install -r requirements.txt
+            whereis cdk
             echo "export PATH=/usr/local/bin/cdk" >> ~/.bashrc
             cdk ls --profile sac
 #       - run:
