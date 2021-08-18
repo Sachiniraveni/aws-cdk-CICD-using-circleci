@@ -51,8 +51,8 @@ jobs:
             pip install -r requirements.txt
             sed -i 's/env_lower.yaml/env_upper.yaml/g' app.py
             cat app.py
-#           cdk ls --profile sac
-#           cdk synth --profile sac
+          cdk ls --profile sac
+          cdk synth --profile sac
             
 #       - run:
 #           name: List the stack
