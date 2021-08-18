@@ -19,22 +19,16 @@ workflows:
 jobs:
   lower:
     docker:
-      - image: cimg/node:12.0
+      - image: cimg/python:3.8.10-node
 
     steps:
       - checkout
       - browser-tools/install-browser-tools
-      - run: |
-          python --version
-          node --version
-      - python/install-packages:
-          pkg-manager: pip
+      - run: node --version
       - run:
           name: Installing the dependencies
           command: |
             apt-get -y -qq update
-            apt-get install python3-venv -y
-            apt-get install python3-pip -y
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip awscliv2.zip
             ./aws/install
