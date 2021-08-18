@@ -39,7 +39,7 @@ jobs:
           name: Installing the Node manager
           command: |
             npm install aws-cdk@1.115.0
-            
+            npm --version
 # cdk --version
       - run:
           name: installing the requirements.
@@ -47,9 +47,9 @@ jobs:
             python3 -m venv .venv
             source .venv/bin/activate
             pip install -r requirements.txt
+            ls -l /usr/bin/python
             echo "export PATH=/usr/local/bin/cdk" >> ~/.bashrc
-            npm --version
-            whereis cdk
+            which cdk
             cdk ls --profile sac
 #       - run:
 #           name: List the stack
