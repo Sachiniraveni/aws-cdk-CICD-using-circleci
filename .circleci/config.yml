@@ -14,12 +14,7 @@ workflows:
             branches:
               only:
                 - circle-workflow-setup
-#       - upper:
-#           filters:
-#             branches:
-#               only:
-#                 - main
-#upper branch is just for POC.
+
 
 jobs:
   lower:
@@ -65,9 +60,4 @@ jobs:
 #             cdk synth --profile sac
 
 
-#   upper: 
-#     docker:     
-#       - image: cimg/node:12.0    
-#     steps:     
-#       - run: echo "hello world" 
 
