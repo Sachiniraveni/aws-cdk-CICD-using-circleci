@@ -29,7 +29,9 @@ jobs:
             
       - run:
           name: Installing the Node manager
-          command: npm install aws-cdk@1.115.0
+          command: |
+            npm install aws-cdk@1.115.0
+            npm --version
       - run:
           name: installing the requirements.
           command: |
