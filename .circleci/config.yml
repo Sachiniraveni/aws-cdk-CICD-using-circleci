@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   aws-cli: circleci/aws-cli@2.0.3
+  python: circleci/python@1.4.0
 #   cdk: myhelix/cdk@1.0.3
 
 
@@ -13,12 +14,12 @@ workflows:
             branches:
               only:
                 - circle-workflow-setup
-      - upper:
-          filters:
-            branches:
-              only:
-                - main
-
+#       - upper:
+#           filters:
+#             branches:
+#               only:
+#                 - main
+#upper branch is just for POC.
 
 jobs:
   lower:
@@ -27,8 +28,10 @@ jobs:
 
     steps:
       - checkout
+      - python/install-packages:
+          pkg-manager: pip
       - run:
-          name: Installing the dependencies 
+          name: Installing the dependencies
           command: |
             apt-get -y -qq update
             apt-get install python3-venv -y
@@ -52,16 +55,19 @@ jobs:
           command: |
             python3 -m venv .venv
             source .venv/bin/activate
-            pip install -r requirements.txt
-            sed -i 's/env_lower.yaml/env_upper.yaml/g' app.py
-            cat app.py
-            cdk ls --profile sac
-            cdk synth --profile sac
+      - python/install-packages:
+          pip-dependency-file: requirements.txt
+          pkg-manager: pip
+#             pip install -r requirements.txt
+#             sed -i 's/env_lower.yaml/env_upper.yaml/g' app.py
+#             cat app.py
+#             cdk ls --profile sac
+#             cdk synth --profile sac
 
 
-  upper: 
-    docker:     
-      - image: cimg/node:12.0    
-    steps:     
-      - run: echo "hello world" 
+#   upper: 
+#     docker:     
+#       - image: cimg/node:12.0    
+#     steps:     
+#       - run: echo "hello world" 
 
