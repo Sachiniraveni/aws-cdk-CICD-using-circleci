@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@2.0.3
   python: circleci/python@1.4.0
-  browser-tools: circleci/browser-tools@1.1
+
 
 
 workflows:
@@ -23,15 +23,14 @@ jobs:
 
     steps:
       - checkout
-      - browser-tools/install-browser-tools
       - run: node --version
       - run:
           name: Installing the dependencies
           command: |
-            apt-get -y -qq update
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            ./aws/install
+            sudo apt-get -y -qq update
+            sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            sudo unzip awscliv2.zip
+            sudo ./aws/install
       - aws-cli/setup:
           profile-name: sac
           aws-access-key-id: AWS_ACCESS_KEY_ID
@@ -40,9 +39,9 @@ jobs:
       - run:
           name: Installing the Node manager
           command: |
-            npm install -g aws-cdk@1.115.0
-            npm --version
-            cdk --version
+            sudo npm install -g aws-cdk@1.115.0
+            sudo npm --version
+            sudo cdk --version
       - run:
           name: installing the requirements and synthesizing into CFN templates.
           command: |
