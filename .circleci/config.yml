@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@2.0.3
   python: circleci/python@1.4.0
-#   cdk: myhelix/cdk@1.0.3
+  browser-tools: circleci/browser-tools@1.1
 
 
 workflows:
@@ -23,6 +23,9 @@ jobs:
 
     steps:
       - checkout
+      - run: |
+          python --version
+          node --version
       - python/install-packages:
           pkg-manager: pip
       - run:
