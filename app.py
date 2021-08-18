@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from aws_cdk.core import App
 from aws_cdk import core
 
 from cdk_sample.cdk_sample_stack import CdkSampleStack
