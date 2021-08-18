@@ -55,9 +55,9 @@ jobs:
 #       - run:
 #           name: List the stack
 #           command: cdk ls --profile sac
-       - cdk/cdk:
-           command: cdk synth 
-           cdk_params: --profile sac
+      - cdk/cdk:
+          command: cdk synth 
+          cdk_params: --profile sac
 
 
 
