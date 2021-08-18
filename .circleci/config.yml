@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   aws-cli: circleci/aws-cli@2.0.3
+  cdk: myhelix/cdk@1.0.3
 
 
 workflows:
@@ -47,13 +48,17 @@ jobs:
             python3 -m venv .venv
             source .venv/bin/activate
             pip install -r requirements.txt
-            ls -l /usr/bin/cdk
-            echo "export PATH=/usr/local/bin/cdk" >> ~/.bashrc
-            which cdk
-            cdk ls --profile sac
+#           ls -l /usr/bin/cdk
+#           echo "export PATH=/usr/local/bin/cdk" >> ~/.bashrc
+#           which cdk
+#           cdk ls --profile sac
 #       - run:
 #           name: List the stack
 #           command: cdk ls --profile sac
+       - cdk/cdk:
+           command: cdk synth 
+           cdk_params: --profile sac
+
 
 
 
