@@ -48,6 +48,7 @@ jobs:
             source .venv/bin/activate
             pip install -r requirements.txt
             echo "export PATH=/usr/local/bin/cdk" >> ~/.bashrc
+            cdk ls --profile sac
 #       - run:
 #           name: List the stack
 #           command: cdk ls --profile sac
