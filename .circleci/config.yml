@@ -28,7 +28,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Installing the dependencies
+          name: Installing the dependencies 
           command: |
             apt-get -y -qq update
             apt-get install python3-venv -y
