@@ -43,14 +43,16 @@ jobs:
             sudo npm --version
             sudo cdk --version
       - run:
-          name: installing the requirements and synthesizing into CFN templates.
+          name: installing the requirements.
           command: |
             python3 -m venv .venv
             source .venv/bin/activate
       - python/install-packages:
           pip-dependency-file: requirements.txt
           pkg-manager: pip
-
+      - run:
+          name: Synthesizing into CFN templates
+          command: cdk ls --profile sac
         
 #             pip install -r requirements.txt
 #             sed -i 's/env_lower.yaml/env_upper.yaml/g' app.py
