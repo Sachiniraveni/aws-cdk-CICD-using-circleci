@@ -28,7 +28,7 @@ jobs:
           name: Installing the dependencies
           command: |
             sudo apt-get -y -qq update
-            sudo pip3 install --upgrade --user awscli
+            sudo pip install --upgrade --user awscli
       - aws-cli/setup:
           profile-name: sac
       - run:
