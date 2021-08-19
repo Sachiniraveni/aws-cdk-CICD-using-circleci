@@ -40,8 +40,7 @@ jobs:
           name: Installing the Node manager
           command: |
             sudo npm install -g aws-cdk@1.115.0
-            sudo npm --version
-            sudo cdk --version
+            cdk ls --profile sac
       - run:
           name: installing the requirements.
           command: |
