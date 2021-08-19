@@ -28,9 +28,7 @@ jobs:
           name: Installing the dependencies
           command: |
             sudo apt-get -y -qq update
-            sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            sudo unzip awscliv2.zip
-            sudo ./aws/install
+            sudo pip3 install --upgrade --user awscli -y
       - aws-cli/setup:
           profile-name: sac
       - run:
