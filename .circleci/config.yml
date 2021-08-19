@@ -39,8 +39,9 @@ jobs:
             sudo npm install -g aws-cdk@1.115.0
       - run:
           name: installing the requirements.
-          command: source .venv/bin/activate
-#           python3 -m venv .venv
+          command: |
+            python3 -m venv .venv
+            source .venv/bin/activate
             
       - python/install-packages:
           pip-dependency-file: requirements.txt
