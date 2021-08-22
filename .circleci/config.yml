@@ -6,8 +6,6 @@ orbs:
 
 workflows:
   schedule-workflow:
-    jobs:
-      - lower
     triggers:
       - schedule:
           cron: "* * * * *"
