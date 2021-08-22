@@ -4,10 +4,16 @@ workflows:
   sample:
     jobs:
       - build-and-test:
+  schedule-workflow:
+    triggers:
+      - schedule:
+          cron: "0 * * * *"
           filters:
             branches:
               only:
-                - circleci-project-setup
+                - circle-project-setup
+    jobs:
+      - deploy
 
 
 jobs:
@@ -36,6 +42,17 @@ jobs:
             python3 -m venv .venv
             source .venv/bin/activate
             pip install -r requirements.txt
+
+  deploy:
+    docker:
+      - image: cimg/node:16.6.2
+      
+    steps:
+      - checkout
+      - run:
+          name: run hello world
+          command: echo "hello world"
+
 
 
 
