@@ -15,8 +15,8 @@ workflows:
             branches:
               only:
                 - circle-project-setup
-#     jobs:
-#       - lower
+    jobs:
+      - lower
 #       - upper
 
 
