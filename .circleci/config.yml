@@ -58,8 +58,8 @@ jobs:
     docker:
       - image: cimg/python:3.8.10-node
       
-      steps:
-        - run: echo "hello world"
+    steps:
+      - run: echo "hello world"
         
 #             pip install -r requirements.txt
 #             sed -i 's/env_lower.yaml/env_upper.yaml/g' app.py
