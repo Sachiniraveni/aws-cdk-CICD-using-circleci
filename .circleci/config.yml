@@ -4,16 +4,20 @@ orbs:
   aws-cli: circleci/aws-cli@2.0.3
   python: circleci/python@1.4.0
 
-
-
 workflows:
   sample:
     jobs:
-      - lower:
+      - upper
+  schedule-workflow:
+    triggers:
+      - schedule:
+          cron: "0 * * * *"
           filters:
             branches:
               only:
-                - circleci-project-setup
+                - circle-project-setup
+    jobs:
+      - lower
 
 
 jobs:
@@ -49,6 +53,13 @@ jobs:
       - run:
           name: Synthesizing into CFN templates
           command: cdk ls --profile sac
+          
+  upper:
+    docker:
+      - image: cimg/python:3.8.10-node
+      
+      steps:
+        - run: echo "hello world"
         
 #             pip install -r requirements.txt
 #             sed -i 's/env_lower.yaml/env_upper.yaml/g' app.py
