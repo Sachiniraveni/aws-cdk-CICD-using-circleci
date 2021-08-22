@@ -5,17 +5,20 @@ orbs:
   python: circleci/python@1.4.0
 
 workflows:
-  schedule-workflow:
+  version: 2.1
+  commit:
+    jobs:
+      - upper
+  nightly:
     triggers:
       - schedule:
-          cron: "25 5 * * *"
+          cron: "* * * * *"
           filters:
             branches:
               only:
                 - circleci-project-setup
     jobs:
-      - upper
-#       - upper
+      - lower
 
 
 jobs:
