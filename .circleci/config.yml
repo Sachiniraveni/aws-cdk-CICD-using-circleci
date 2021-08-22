@@ -6,6 +6,8 @@ orbs:
 
 workflows:
   schedule-workflow:
+    jobs:
+      - upper
     triggers:
       - schedule:
           cron: "10 5 * * *"
@@ -13,9 +15,9 @@ workflows:
             branches:
               only:
                 - circle-project-setup
-    jobs:
-      - lower
-      - upper
+#     jobs:
+#       - lower
+#       - upper
 
 
 jobs:
