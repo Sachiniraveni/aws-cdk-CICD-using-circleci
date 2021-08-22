@@ -3,7 +3,7 @@ version: 2.1
 workflows:
   sample:
     jobs:
-      - build-and-test:
+      - build-and-test
   schedule-workflow:
     triggers:
       - schedule:
