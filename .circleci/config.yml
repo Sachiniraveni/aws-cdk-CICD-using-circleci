@@ -5,19 +5,14 @@ orbs:
   python: circleci/python@1.4.0
 
 workflows:
-  build:
-    jobs:
-      - upper
-
-
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "* * * * *"
+          cron: "23 5 * * *"
           filters:
             branches:
               only:
-                - circle-project-setup
+                - circleci-project-setup
     jobs:
       - upper
 #       - upper
