@@ -5,6 +5,11 @@ orbs:
   python: circleci/python@1.4.0
 
 workflows:
+  build:
+    jobs:
+      - upper
+
+
   schedule-workflow:
     triggers:
       - schedule:
@@ -14,7 +19,7 @@ workflows:
               only:
                 - circle-project-setup
     jobs:
-      - lower
+      - upper
 #       - upper
 
 
