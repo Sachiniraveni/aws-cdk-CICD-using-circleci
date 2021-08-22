@@ -5,13 +5,10 @@ orbs:
   python: circleci/python@1.4.0
 
 workflows:
-  sample:
-    jobs:
-      - upper
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "3 5 * * *"
+          cron: "10 5 * * *"
           filters:
             branches:
               only:
