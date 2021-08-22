@@ -9,16 +9,16 @@ workflows:
   commit:
     jobs:
       - upper
-  nightly:
-    triggers:
-      - schedule:
-          cron: "* * * * *"
-          filters:
-            branches:
-              only:
-                - circleci-project-setup
-    jobs:
-      - lower
+#   nightly:
+#     triggers:
+#       - schedule:
+#           cron: "* * * * *"
+#           filters:
+#             branches:
+#               only:
+#                 - circleci-project-setup
+#     jobs:
+#       - lower
 
 
 jobs:
