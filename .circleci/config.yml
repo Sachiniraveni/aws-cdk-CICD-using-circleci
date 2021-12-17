@@ -3,12 +3,12 @@ version: 2.1
 workflows:
   sample:
     jobs:
-      - build-and-test
-      - hold:
-        type: approval
-      - deploy:
-          requires:
-            - build-and-test
+      - deploy
+      - build-and-test:
+          type: approval
+          requires: 
+            - deploy
+
         
 
 
