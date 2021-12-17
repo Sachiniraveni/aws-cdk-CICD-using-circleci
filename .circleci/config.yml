@@ -3,19 +3,12 @@ version: 2.1
 workflows:
   sample:
     jobs:
-      - build-and-test:
+      - build-and-test
+      - deploy:
           requires:
-            - deploy
+            - build-and-test
       - hold:
           type: approval
-  schedule-workflow:
-    triggers:
-      - schedule:
-          cron: "0 * * * *"
-          filters:
-            branches:
-              only:
-                - circle-project-setup
 
 
 
