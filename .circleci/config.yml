@@ -1,54 +1,54 @@
-version: 2.1
+# version: 2.1
 
-workflows:
-  sample:
-    jobs:
-      - deploy
-      - build-and-test:
-          type: approval
-          requires: 
-            - deploy
+# workflows:
+#   sample:
+#     jobs:
+#       - deploy
+#       - build-and-test:
+#           type: approval
+#           requires: 
+#             - deploy
 
         
 
 
 
-jobs:
-  build-and-test:
-    docker:
-      - image: cimg/node:16.6.2
+# jobs:
+#   build-and-test:
+#     docker:
+#       - image: cimg/node:16.6.2
 
-    steps:
-      - checkout
-      - run:
-          name: Installing the dependencies
-          command: |
-            sudo apt-get -y -qq update
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
+#     steps:
+#       - checkout
+#       - run:
+#           name: Installing the dependencies
+#           command: |
+#             sudo apt-get -y -qq update
+#             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+#             unzip awscliv2.zip
+#             sudo ./aws/install
             
-      - run:
-          name: Installing the Node manager
-          command: |
-            npm install aws-cdk@1.115.0
-            npm --version
-      - run:
-          name: installing the requirements.
-          command: |
-            sudo python3 -m venv .venv
-            sudo source .venv/bin/activate
-            sudo pip install -r requirements.txt
+#       - run:
+#           name: Installing the Node manager
+#           command: |
+#             npm install aws-cdk@1.115.0
+#             npm --version
+#       - run:
+#           name: installing the requirements.
+#           command: |
+#             sudo python3 -m venv .venv
+#             sudo source .venv/bin/activate
+#             sudo pip install -r requirements.txt
 
-  deploy:
-    docker:
-      - image: cimg/node:16.6.2
+#   deploy:
+#     docker:
+#       - image: cimg/node:16.6.2
       
-    steps:
-      - checkout
-      - run:
-          name: run hello world
-          command: echo "hello world"
+#     steps:
+#       - checkout
+#       - run:
+#           name: run hello world
+#           command: echo "hello world"
 
 
 
