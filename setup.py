@@ -24,7 +24,7 @@ setuptools.setup(
         "aws-cdk.aws_sqs==1.115.0",
         "aws-cdk.aws_sns==1.115.0",
         "aws-cdk.aws_sns_subscriptions==1.115.0",
-        "aws-cdk.aws_s3==1.115.0",
+        "aws-cdk.aws_s3==1.152.0",
     ],
 
     python_requires=">=3.6",
