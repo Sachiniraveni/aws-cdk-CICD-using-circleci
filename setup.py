@@ -19,7 +19,7 @@ setuptools.setup(
     packages=setuptools.find_packages(where="cdk_sample"),
 
     install_requires=[
-        "aws-cdk.core==1.115.0",
+        "aws-cdk.core==1.175.0",
         "aws-cdk.aws_iam==1.115.0",
         "aws-cdk.aws_sqs==1.115.0",
         "aws-cdk.aws_sns==1.115.0",
